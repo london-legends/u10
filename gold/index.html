@@ -6,68 +6,42 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <title>U10 Gold Schedules 2023/24</title>
     <style>
-      ul {
-        width: 100%;
-        display: table;
-        table-layout: fixed;
-        border-collapse: collapse;
-      }
-
-      ul.header {
-        background-color: lightgray;
-      }
-
-      li {
-        display: table-cell;
-        text-align: center;
-        border: 1px solid;
-        vertical-align: text-top;
-
-      }
-      div, h2, li {
+      div {
         font-family: verdana;
+        text-align: center;
       }
     </style>
   </head>
   <body>
-    <h2>U10 Gold Schedules 2023/24 (Latest at the top)</h2>
-    <ul class="header">
-      <li>Date</li>
-      <li>Event</li>
-      <li>Time</li>
-      <li>Address</li>
-    </ul>
-    <ul>
+    <div class="w3-container w3-green">
+      <h2>U10 Gold Schedules 2023/24 (Latest at the top)</h2>
+    </div>
+    <div>
       {% for post in site.posts %}
-        <li>
+        <div class="w3-third">
           <div>
-            <b>{{post.matchDate}}</b>
+            <h5>Date and Time: {{post.matchDate}}</h5>
+            <p><b>Meet:</b> {{post.meetup}}</p>
+            <p><b>Kickoff:</b> {{post.kickoff}}</p>
           </div>
-        </li>  
-        <li>
+        </div>  
+        <div class="w3-third">
           <div>
-              <b>{{post.matchType}}</b> vs {{post.otherTeam}}
+             <h5><b>{{post.matchType}}</b> vs {{post.otherTeam}}<h5>
           </div>  
-        </li>
-        <li>
-          <div>
-            <b>Meet:</b> {{post.meetup}} 
-          </div>
-          <div>
-            <b>Kickoff:</b> {{post.kickoff}}
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>{{post.address}}</h3>
-          </div>
+        </div>
+        <div class="w3-third">
+          <h5>Address: {{post.address}}</h5>
           <div>
               <iframe src="{{post.map}}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-        </li>
+        </div>
       {% endfor %}
-    </ul>
+      </div>
+    <div>
   </body>
 </html>
