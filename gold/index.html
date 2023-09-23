@@ -1,0 +1,67 @@
+---
+# front matter tells Jekyll to process Liquid
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>U10 Gold Schedules 2023/24</title>
+    <style>
+      ul {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+        border-collapse: collapse;
+      }
+
+      ul.header {
+        background-color: lightgray;
+      }
+
+      li {
+        display: table-cell;
+        text-align: center;
+        border: 1px solid;
+        vertical-align: text-top;
+
+      }
+      div, h2, li {
+        font-family: verdana;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>U10 Gold Schedules 2023/24 (Latest at the top)</h2>
+    <ul class="header">
+      <li>Event</li>
+      <li>Time</li>
+      <li>Address</li>
+    </ul>
+    <ul>
+      {% for post in site.posts %}
+        <li>
+          <div>
+              <b>{{post.matchType}}</b> vs {{post.otherTeam}}
+          </div>  
+        </li>
+        <li>
+          <div>
+            <b>Meet:</b> {{post.meetup}} 
+          </div>
+          <div>
+            <b>Kickoff:</b> {{post.kickoff}}
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>{{post.address}}</h3>
+          </div>
+          <div>
+              <iframe src="{{post.map}}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
