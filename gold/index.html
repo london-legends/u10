@@ -34,12 +34,18 @@
   <body>
     <h2>U10 Gold Schedules 2023/24 (Latest at the top)</h2>
     <ul class="header">
+      <li>Date</li>
       <li>Event</li>
       <li>Time</li>
       <li>Address</li>
     </ul>
     <ul>
       {% for post in site.posts %}
+        <li>
+          <div>
+            <b>{{post.matchDate}}</b>
+          </div>
+        </li>  
         <li>
           <div>
               <b>{{post.matchType}}</b> vs {{post.otherTeam}}
