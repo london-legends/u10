@@ -1,5 +1,6 @@
 ---
 title:  "Season Opener"
+index: 1
 date:   2023-09-23
 matchDate: Sun, Sep 24, 2023
 matchType: Away
