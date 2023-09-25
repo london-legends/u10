@@ -1,9 +1,9 @@
 ---
 title:  "Season Opener"
-index: 1
 date:   2023-09-23
-matchDate: Sun, Sep 24, 2023
-matchType: Away
+eventDate: Sun, Sep 24, 2023
+type: match 
+venue: Away
 otherTeam: Samuel Montagu FC
 meetup: 1.30pm
 kickoff: 2.00pm

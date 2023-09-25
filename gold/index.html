@@ -22,26 +22,47 @@
     </div>
     <div>
       {% for post in site.posts %}
-        <div class="w3-container w3-mobile">
-            <hr/>
-            <div class="w3-third">
-              <div>
-                <h5><b>Date and Time:</b> {{post.matchDate}}</h5>
-                <p><b>Meet:</b> {{post.meetup}}</p>
-                <p><b>Kickoff:</b> {{post.kickoff}}</p>
-              </div>
-            </div>  
-            <div class="w3-third">
-              <div>
-                 <h5><b>{{post.matchType}}</b> vs {{post.otherTeam}}<h5>
+        {% if post.type == 'match' %} <!-- match template -->
+          <div class="w3-container w3-mobile">
+              <hr/>
+              <div class="w3-third">
+                <div><p><b>{{post.type | upcase}}</b></p></div>
+                <div>
+                  <h5><b>Date and Time:</b> {{post.eventDate}}</h5>
+                  <p><b>Meet:</b> {{post.meetup}}</p>
+                  <p><b>Kickoff:</b> {{post.kickoff}}</p>
+                </div>
               </div>  
-            </div>
-            <div class="w3-third">
-              <h5>Address: {{post.address}}</h5>
-              <div>
-                <iframe src="{{post.map}}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              <div class="w3-third">
+                <div>
+                   <h5><b>{{post.venue}}</b> vs {{post.otherTeam}}<h5>
+                </div>  
               </div>
-        </div>
+              <div class="w3-third">
+                <h5>Address: {{post.address}}</h5>
+                <div>
+                  <iframe src="{{post.map}}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+          </div>
+        {% elsif post.type == 'training' %} <!-- training template -->
+          <div class="w3-container w3-mobile">
+              <hr/>
+              <div class="w3-third">
+                <div><p><b>{{post.type | upcase}}</b></p></div>
+                <div>
+                  <h5><b>Date and Time:</b> {{post.eventDate}}</h5>
+                  <p><b>Meet:</b> {{post.meetup}}</p>
+                  <p><b>Ends:</b> {{post.ends}}</p>
+                </div>
+              </div>  
+              <div class="w3-third">
+                <h5>Address: {{post.address}}</h5>
+                <div>
+                  <iframe src="{{post.map}}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+          </div>
+        {% endif %}
+
       {% endfor %}
     </div>
   </body>
